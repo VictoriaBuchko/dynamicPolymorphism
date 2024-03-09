@@ -15,8 +15,12 @@ protected:
 public:
     Transport(const string& m, double c) : model(m), consumption(c){}
 
-    virtual void Print() const = 0;
-    virtual void fuelConsumption() const = 0;
+    virtual void Print() const {
+        cout << "Transport model: " << model << endl;
+    }
+    virtual void fuelConsumption() const {
+        cout << "Fuel consumption: " << consumption << endl;
+    }
 };
 
 class Airplane : public Transport {
@@ -26,12 +30,12 @@ public:
 
     void Print() const override {
         cout << "\nAirplane: \n";
-        cout << "Airplane model: " << model << endl;
+        Transport::Print();
         cout << "Speed: " << speed << endl;
     }
 
     void fuelConsumption() const override {
-        cout << "Fuel consumption of the airplane: " << consumption <<endl;
+        Transport::fuelConsumption();
     }
 };
 
@@ -42,12 +46,12 @@ public:
 
     void Print() const override {
         cout << "\nShip: \n";
-        cout << "Ship model: " << model << endl;
+        Transport::Print();
         cout << "Speed: " << speed << endl;
     }
 
     void fuelConsumption() const override {
-        cout << "Fuel consumption of the ship: " << consumption << endl;
+        Transport::fuelConsumption();
     }
 };
 
@@ -58,12 +62,12 @@ public:
 
     void Print() const override {
         cout << "\nTruck: " << endl;
-        cout << "Truck model: " << model << endl;
+        Transport::Print();
         cout << "Number of wheels: " << numberOfWheels << endl;
     }
 
     void fuelConsumption() const override {
-        cout << "Fuel consumption of the truck: " << consumption << endl;
+        Transport::fuelConsumption();
     }
 };
 
@@ -74,11 +78,12 @@ public:
 
     void Print() const override {
         cout << "\nBicycle:\n";
-        cout << "Bicycle model: " << model << endl;
+        Transport::Print();
         cout << "Number of wheels: " << numberOfWheels << endl;
     }
 
     void fuelConsumption() const override {
+        Transport::fuelConsumption();
         cout << "Bicycles don't use fuel" << endl;
     }
 };
@@ -91,13 +96,13 @@ public:
 
     void Print() const override {
         cout << "\nCar:\n";
-        cout << "Car model: " << model << endl;
+        Transport::Print();
         cout << "Speed: " << speed << endl;
         cout << "Number of wheels: " << numberOfWheels << endl;
     }
 
     void fuelConsumption() const override {
-        cout << "Fuel consumption of the car: " << consumption << endl;
+        Transport::fuelConsumption();
     }
 };
 
